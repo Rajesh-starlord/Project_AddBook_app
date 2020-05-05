@@ -1,66 +1,76 @@
-import java.util.*;
-import java.io.*;
-import com.BridgeLabz.CodingClub;
+	import java.util.*;
+	import java.io.*;
+	//import com.BridgeLabz.CodingClub.*;
 
-public class AddressBooks{
+	public class AddressBooks{
 
-	public static void main(String args[]){
-		Scanner sc = new Scanner(System.in);
-		String fname;
-		String lname;
-		String add;
-		int zip;
-		Random r = new Random();
-		int random = r.nextInt();
-		String id = "P"+random;
-		System.out.println("OPTIONS:");
-		System.out.println("1.ADD  2.OPEN  3.EDIT  4.DELETE  5.EXIT");
-		int opt = sc.nextInt();
-		while (opt != 5){
-			System.out.println("1.ADD  2.OPEN  3.EDIT  4.DELETE  5.EXIT");
-			opt = sc.nextInt();
-			switch(opt){
-				case 1:
-						System.out.println("enter your first name:");
-						fname = sc.next();
-						System.out.println("enter your last name:");
-						lname = sc.next();
-						System.out.println("enter your address");
-						sc.nextLine();
-						add = sc.nextLine();
-						System.out.println("enter your ZIP code");
-						zip = sc.nextInt();
-						Person data = new Person(id,fname,lname,add,zip);
-						Util ut1 = new Util();
-						ut1.addData(data);
-						break;
-				case 2:
-						Util ut2 = new Util();
-						ut2.readData();
-						break;
-				case 3:
-						System.out.println("enter id:");
-						int id = sc.nextInt();
-						Service sr = new Service();
-						sr.edit(id);
-						break;
-				case 4:
-						System.out.println("1:Delete All 2:Delete One");
-						int op = sc.nextInt();
-						if (op == 1){
-							Service srv = new Service();
-							srv.delete();
-						} else {
-							System.out.println("Enter id:");
-							int delId = sc.nextInt();
-							Service srv = new Service();
-							srv.delete(delId);
-						}
-						break;
-				case 5: System.exit(0);break;
-				default : System.out.println("Enter a valid option:");	
-			}//switch
-		}//while
-	}//main
-}//class
-				
+		public static void main(String args[]){
+			Scanner sc = new Scanner(System.in);
+			String opt;
+			int option = 0;
+			System.out.println("OPTIONS:");
+			do {
+				System.out.println("1.ADD  2.OPEN  3.EDIT  4.DELETE  5.SORT  6.EXIT");
+				opt = sc.next();
+				boolean checkResult = Util.checkInt(opt);
+				if (checkResult){
+					option = Integer.parseInt(opt);
+					switch(option){
+						case 1:
+								Util.getPerson();
+								break;
+						case 2:
+								Service service = new Service();
+								service.readData();
+								break;
+						case 3:
+								System.out.println("enter id:");
+								String idE = sc.next();
+								sc.nextLine();
+								Service sr = new Service();
+								sr.edit(idE);
+								break;
+						case 4:
+								System.out.println("1:Delete All 2:Delete One");
+								int op = sc.nextInt();
+								if (op == 1){
+									Service srv = new Service();
+									try{
+										srv.delete();
+									}catch(Exception e){
+										e.printStackTrace();
+									}
+								} else {
+									System.out.println("Enter id:");
+									String delId = sc.next();
+									Service srv = new Service();
+									try{
+										srv.deleteOne(delId);
+									}catch(Exception e){
+										e.printStackTrace();
+									}
+								}
+								break;
+						case 5:System.out.println("1.sortBy Fname 2.sortBy lName 3.sortBy zip");
+								int sortBy=sc.nextInt();
+								Service srv = new Service();
+								if(sortBy == 1){
+									srv.sortBy("fName");
+								}else if (sortBy == 2){
+									srv.sortBy("lName");
+								}
+								else if(sortBy == 3){
+									srv.sortBy("zip");
+								}else{
+									 System.out.println("Enter a valid option:");
+								}
+								break;
+						case 6: System.exit(0);break;
+						default : System.out.println("Enter a valid option:");
+					}//switch
+				}else{
+					System.out.println("Enter a valid number:");
+				}
+			}while(option != 6);//while
+		}//main
+	}//class
