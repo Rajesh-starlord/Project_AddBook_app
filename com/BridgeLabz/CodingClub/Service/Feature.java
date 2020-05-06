@@ -49,8 +49,12 @@ public class Feature implements Iserv{
 			File file = new File("AddressBook.csv");
 			if(file.exists()) {
 				List<Person> Persons = Util.getData();
-				for (Person Per : Persons) {
-					System.out.println(Per);
+				if(Persons.size() >= 1) {
+					for (Person Per : Persons) {
+						System.out.println(Per);
+					}
+				}else {
+					System.out.println("Empty File...No record:");
 				}
 			}else {
 				System.out.println("File not found..create firs:");
