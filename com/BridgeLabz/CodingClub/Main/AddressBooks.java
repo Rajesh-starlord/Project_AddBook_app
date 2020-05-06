@@ -19,49 +19,49 @@ public class AddressBooks{
 				option = Integer.parseInt(opt);
 				switch(option){
 					case 1:
-							Util.getPerson();
-							break;
+						Util.getPerson();
+						break;
 					case 2:
-							Features.readData();
-							break;
+						Features.readData();
+						break;
 					case 3:
-							System.out.println("enter id:");
-							String idE = sc.next();
-							sc.nextLine();
-							Features.edit(idE);
-							break;
+						System.out.println("enter id:");
+						String idE = sc.next();
+						sc.nextLine();
+						Features.edit(idE);
+						break;
 					case 4:
-							System.out.println("1:Delete All 2:Delete One");
-							int op = sc.nextInt();
-							if (op == 1){
-								try{
-									Features.delete();
-								}catch(Exception e){
-									e.printStackTrace();
-								}
-							} else {
-								System.out.println("Enter id:");
-								String delId = sc.next();
-								try{
-									Features.deleteOne(delId);
-								}catch(Exception e){
-									e.printStackTrace();
-								}
+						System.out.println("1:Delete All 2:Delete One");
+						int op = sc.nextInt();
+						if (op == 1){
+							try{
+								Features.delete();
+							}catch(Exception e){
+								e.printStackTrace();
 							}
-							break;
+						} else {
+							System.out.println("Enter id:");
+							String delId = sc.next();
+							try{
+								Features.deleteOne(delId);
+							}catch(Exception e){
+								e.printStackTrace();
+							}
+						}
+						break;
 					case 5:System.out.println("1.sortBy Fname 2.sortBy lName 3.sortBy zip");
-							int sortBy=sc.nextInt();
-							if(sortBy == 1){
-								Features.sortBy("fName");
-							}else if (sortBy == 2){
-								Features.sortBy("lName");
-							}
-							else if(sortBy == 3){
-								Features.sortBy("zip");
-							}else{
-								 System.out.println("Enter a valid option:");
-							}
-							break;
+						int sortBy=sc.nextInt();
+						if(sortBy == 1){
+							Features.sortBy("fName");
+						}else if (sortBy == 2){
+							Features.sortBy("lName");
+						}
+						else if(sortBy == 3){
+							Features.sortBy("zip");
+						}else{
+							 System.out.println("Enter a valid option:");
+						}
+						break;
 					case 6: System.exit(0);break;
 					default : System.out.println("Enter a valid option:");
 				}//switch
