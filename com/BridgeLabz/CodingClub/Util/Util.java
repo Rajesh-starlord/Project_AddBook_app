@@ -1,15 +1,17 @@
-  import com.bridgeLabz.codingclub;
-  import java.io.FileWriter;
-  import java.io.IOException;
-  import java.util.ArrayList;
-  import java.util.List;
-  import java.io.BufferedReader;
-  import java.io.FileReader;
-  import java.util.Scanner;
-  import java.util.Random;
-  /*
-  *utility class
-  */
+package com.bridgelabz.codingclub.Utils;
+import com.bridgelabz.codingclub.Models.*;
+import com.bridgelabz.codingclub.Service.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Scanner;
+import java.util.Random;
+/*
+*utility class
+*/
 
   public class Util{
   	private static Scanner sc = new Scanner(System.in);

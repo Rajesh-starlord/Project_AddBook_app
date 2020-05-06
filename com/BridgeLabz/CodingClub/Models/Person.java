@@ -1,4 +1,4 @@
-import com.bridgelabz.codingclub;
+package com.bridgelabz.codingclub.Models;
 import java.util.Random;
 import java.util.*;
 

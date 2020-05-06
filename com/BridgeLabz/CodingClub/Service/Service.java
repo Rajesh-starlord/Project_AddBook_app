@@ -1,4 +1,6 @@
-import com.bridgelabz.codingclub;
+package com.bridgelabz.codingclub.Service;
+import com.bridgelabz.codingclub.Models.*;
+import com.bridgelabz.codingclub.Utils.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
