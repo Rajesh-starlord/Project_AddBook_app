@@ -6,10 +6,10 @@ import java.io.*;
 
 public class AddressBooks{
 	private static Scanner sc = new Scanner(System.in);
+	private static final Feature Features = new Feature();
 	public static void main(String args[]){
 		String opt;
 		int option = 0;
-		Feature Features = new Feature();
 		System.out.println("OPTIONS:");
 		do {
 			System.out.println("1.ADD  2.OPEN  3.EDIT  4.DELETE  5.SORT  6.EXIT");
