@@ -1,6 +1,6 @@
 package com.bridgelabz.codingclub.Main;
-import com.bridgelabz.codingclub.service.*;
-import com.bridgelabz.codingclub.utils.*;
+import com.bridgelabz.codingclub.Service.*;
+import com.bridgelabz.codingclub.Util.*;
 import java.util.*;
 import java.io.*;
 
