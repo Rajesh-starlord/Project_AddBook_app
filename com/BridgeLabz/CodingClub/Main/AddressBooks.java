@@ -5,11 +5,11 @@ import java.util.*;
 import java.io.*;
 
 public class AddressBooks{
-
+	private static Scanner sc = new Scanner(System.in);
 	public static void main(String args[]){
-		Scanner sc = new Scanner(System.in);
 		String opt;
 		int option = 0;
+		Feature Features = new Feature();
 		System.out.println("OPTIONS:");
 		do {
 			System.out.println("1.ADD  2.OPEN  3.EDIT  4.DELETE  5.SORT  6.EXIT");
@@ -22,32 +22,28 @@ public class AddressBooks{
 							Util.getPerson();
 							break;
 					case 2:
-							Service service = new Service();
-							service.readData();
+							Features.readData();
 							break;
 					case 3:
 							System.out.println("enter id:");
 							String idE = sc.next();
 							sc.nextLine();
-							Service sr = new Service();
-							sr.edit(idE);
+							Features.edit(idE);
 							break;
 					case 4:
 							System.out.println("1:Delete All 2:Delete One");
 							int op = sc.nextInt();
 							if (op == 1){
-								Service srv = new Service();
 								try{
-									srv.delete();
+									Features.delete();
 								}catch(Exception e){
 									e.printStackTrace();
 								}
 							} else {
 								System.out.println("Enter id:");
 								String delId = sc.next();
-								Service srv = new Service();
 								try{
-									srv.deleteOne(delId);
+									Features.deleteOne(delId);
 								}catch(Exception e){
 									e.printStackTrace();
 								}
@@ -55,14 +51,13 @@ public class AddressBooks{
 							break;
 					case 5:System.out.println("1.sortBy Fname 2.sortBy lName 3.sortBy zip");
 							int sortBy=sc.nextInt();
-							Service srv = new Service();
 							if(sortBy == 1){
-								srv.sortBy("fName");
+								Features.sortBy("fName");
 							}else if (sortBy == 2){
-								srv.sortBy("lName");
+								Features.sortBy("lName");
 							}
 							else if(sortBy == 3){
-								srv.sortBy("zip");
+								Features.sortBy("zip");
 							}else{
 								 System.out.println("Enter a valid option:");
 							}

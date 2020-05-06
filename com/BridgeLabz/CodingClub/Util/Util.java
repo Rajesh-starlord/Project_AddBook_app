@@ -12,8 +12,7 @@ import java.util.Random;
 /*
 *utility class
 */
-
-  public class Util{
+public class Util{
   	private static Scanner sc = new Scanner(System.in);
   	public static  boolean checkInt(String entry){
   		try{
@@ -39,8 +38,8 @@ import java.util.Random;
   		boolean checkRes = checkInt(zip);
   		if(checkRes){
   			Person data = new Person(id,fname,lname,add,Integer.parseInt(zip));
-  			Service ser = new Service();
-  			ser.addData(data);
+  			Feature Features = new Feature();
+  			Features.addData(data);
   		}else{
   			System.out.println("invalid Entry for zip:");
   		}
@@ -72,4 +71,4 @@ import java.util.Random;
   		}
   		return Persons;
   	}//getData
-  }//class
+}//class

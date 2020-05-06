@@ -1,18 +1,18 @@
 package com.bridgelabz.codingclub.Service;
 import com.bridgelabz.codingclub.Models.*;
 import com.bridgelabz.codingclub.Utils.*;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.util.Scanner;
 import java.util.*;
 /*
 *service class to provide all curd opertions to an AddressBook
 */
 
-public class Service implements Iserv{
+public class Feature implements Iserv{
 	private static Scanner sc = new Scanner(System.in);
 	//@Override
 	public void addData(Person P){
@@ -45,9 +45,18 @@ public class Service implements Iserv{
 	}//function_addData
 
 	public void readData() {
-		List<Person> Persons = Util.getData();
-		for (Person Per : Persons) {
-			System.out.println(Per);
+		try {
+			File file = new File("AddressBook.csv");
+			if(file.exists()) {
+				List<Person> Persons = Util.getData();
+				for (Person Per : Persons) {
+					System.out.println(Per);
+				}
+			}else {
+				System.out.println("File not found..create firs:");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 	}//function_readData
 
